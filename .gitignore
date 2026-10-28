@@ -1,0 +1,19 @@
+# Build output and local development artifacts
+*.exe
+*.pdb
+*.tmp
+/artifacts/
+/icons_preview/
+/tools/
+/icon_*.png
+/screenshot_*.png
+.vs/
+bin/
+obj/
+# Never publish runtime/user files or credentials
+log.txt
+*.log
+.env
+.env.*
+*.credentials.*
+*.user

@@ -1,0 +1,23 @@
+# Optional template. Copy to .github/workflows/windows.yml to enable.
+# Adding a workflow using an OAuth token requires the workflow scope.
+name: Windows build and tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build, test and package
+        shell: powershell
+        run: .\build.ps1 -Test -Package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AutoDayNight-windows
+          path: |
+            artifacts/AutoDayNight-v1.0.0-windows.zip
+            artifacts/SHA256SUMS.txt
